@@ -98,11 +98,33 @@ export default function Home() {
                   </li>
               </ul>
             </div>
-          </main>
 
+            {/* ENTRE EM CONTATO */}
+            <div className='bg-[#5243C2] rounded-xl h-72 flex items-center align-middle justify-center mt-16'>
+              <div className='flex items-center w-[100%] justify-around align-middle'>
+                <div className='relative'>
+                  <h3 className='text-white text-2xl font-semibold'>
+                    Contrate a melhor equipe de desenvolvedores e design do <br/>mundo,
+                    eles se encontram aqui na Zero 27 Code!
+                  </h3>
+                  <img className='absolute left-[48rem] bottom-9' src='/group47.png'/>
+                  <img className='absolute left-[39rem] top-24' src='/group48.png'/>
+                </div>
+                <div className='relative'>
+                  <img className='absolute left-48 bottom-14' src='/group46.png'/>
+                  <button className='bg-[#EF0178] text-white p-5'>ENTRAR EM CONTATO</button>
+                </div>
+                
+              </div>
+            </div>
+          </main>
         </div>
-        
       </div>
+      {/* RODAPÈ */}
+      <footer className='bg-[#0C111F] mt-16'>
+        <h3>Entre em contato conosco</h3>
+        <p>Ao entrar em contato, você aceita nossa política de privacidade.</p>
+      </footer>
     </>
     
   )
