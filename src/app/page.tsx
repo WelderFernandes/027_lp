@@ -8,7 +8,7 @@ export default function Home() {
           {/* MENU */}
           <header className='flex justify-center align-middle justify-between mt-5'>
             <img
-              src='/lOgo.png'
+              src='/logo_027.png'
               alt='Logo'
               width={220}
             />
@@ -69,6 +69,34 @@ export default function Home() {
                   <li className='flex align-middle items-center'><img src='/ok.png' alt='Verificado' width={15} className='mr-1'/>Fácil de personalizar plug-ins</li>
                 </ul>
               </div>
+            </div>
+
+            {/* SERVIÇOS */}
+            <div className='flex justify-center flex-col align-middle items-center mt-16'>
+              <h3 className='font-bold text-[#EF0178] text-xl'>Nossos Serviços</h3>
+              <p className='font-bold text-3xl text-center mt-6'>Determine o serviço que você precisa</p>
+              <ul className='list-none flex align-middle justify-evenly w-auto mt-6'>
+                  <li className='inline p-9 flex justify-center flex-col items-center text-center'>
+                    <img src='/frame.png' width={110}/>
+                    <h4 className='font-bold text-lg mt-5'>Desenvolvimento</h4>
+                    <p className='mt-4'>Crie uma plataforma com a melhor e<br/>mais legal qualidade nossa.</p>
+                  </li>
+                  <li className='inline p-9 flex justify-center flex-col items-center text-center'>
+                    <img src='/frame1.png' width={110}/>
+                    <h4 className='font-bold text-lg mt-5' >UI/UX Designer</h4>
+                    <p className='mt-4'>Prestamos serviços de UI/UX Design, e<br/>claro com a melhor qualidade</p>
+                  </li>
+                  <li className='inline p-9 flex justify-center flex-col items-center text-center'>
+                    <img src='/frame2.png' width={110}/>
+                    <h4 className='font-bold text-lg mt-5'>Motion Graphik</h4>
+                    <p className='mt-4'>Crie uma plataforma com a melhor e<br/>mais legal qualidade nossa.</p>
+                  </li>
+                  <li className='inline p-9 flex justify-center flex-col items-center text-center'>
+                    <img src='/frame3.png' width={110}/>
+                    <h4 className='font-bold text-lg mt-5'>Melhor história do prêmio</h4>
+                    <p className='mt-4'>colocamos vários prêmios por<br/>nosso desempenho</p>
+                  </li>
+              </ul>
             </div>
           </main>
 
