@@ -121,9 +121,43 @@ export default function Home() {
         </div>
       </div>
       {/* RODAPÈ */}
-      <footer className='bg-[#0C111F] mt-16'>
-        <h3>Entre em contato conosco</h3>
-        <p>Ao entrar em contato, você aceita nossa política de privacidade.</p>
+      <footer className='bg-[#0C111F] mt-16 flex justify-center'>
+        <div className='container relative'>
+          <div className='absolute right-28 top-48'>
+            <img src='/group47.png'/>
+          </div>
+          <div className='flex justify-center text-white flex-col items-center'>
+            <h3 className='text-3xl font-light pt-24'>Entre em contato conosco</h3>
+            <p className='font-light pt-6 text-gray-400'>Ao entrar em contato, você aceita nossa política de privacidade.</p>
+            <div className=' flex justify-center w-[100%] pb-24 pt-8'>
+              <div className='flex flex-col w-[30%] mx-3'>
+                  <input type='text' name='nome' placeholder='Nome' className='bg-slate-800 text-white p-4 w-auto my-2'/>
+                  <input type='text' name='telefone' placeholder='Telefone' className='bg-slate-800 text-white p-4 w-auto my-2'/>
+                  <input type='text' name='email' placeholder='E-mail' className='bg-slate-800 text-white p-4 w-auto my-2'/>
+                  <button className='bg-[#5243C2] p-4 my-2 text-white'>Enviar Mensagem</button>
+              </div>
+              <div className='flex w-[30%] mx-3 '>
+                <textarea name='mensagem' placeholder='Mensagem' className='bg-slate-800 w-[100%]'></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div className='absolute bottom-44 left-12'>
+            <img src='/group48.png'/>
+          </div>
+
+          <div className='flex justify-between items-center w-[100%] pb-10'>
+            <img src='/logo_027.png' width={180}/>
+            <ul className='list-none flex align-middle justify-center text-white'>
+              <li className='inline p-3'>Inicio</li>
+              <li className='inline p-3'>Sobre Nós</li>
+              <li className='inline p-3'>Serviços</li>
+              <li className='inline p-3'>Preços</li>
+              <li className='inline p-3'>Depoimentos</li>
+            </ul>
+          </div>
+        </div>
+        
       </footer>
     </>
     
