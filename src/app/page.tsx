@@ -4,11 +4,11 @@ import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
-  { name: 'Início', href: '#', current: true },
-  { name: 'Sobre Nós', href: '#', current: false },
-  { name: 'Serviços', href: '#', current: false },
-  { name: 'Preços', href: '#', current: false },
-  { name: 'Depoimentos', href: '#', current: false },
+  { name: 'Início', href: '#home', current: true },
+  { name: 'Sobre Nós', href: '#sobrenos', current: false },
+  { name: 'Serviços', href: '#servicos', current: false },
+  // { name: 'Preços', href: '#', current: false },
+  // { name: 'Depoimentos', href: '#', current: false },
 ]
 
 function classNames(...classes: string[]) {
@@ -102,7 +102,7 @@ export default function Home() {
 
           <main>
             {/* BOX PRINCIPAL */}
-            <div className='flex align-middle items-center flex-col-reverse md:flex-row justify-center md:justify-around mt-12 md:mt-24'>
+            <div id='home' className='flex align-middle items-center flex-col-reverse md:flex-row justify-center md:justify-around mt-12 md:mt-24'>
               <div className='flex align-middle justify-center items-center md:items-start h-32 flex-col'>
                 <h1 className='mt-60 md:mt-0 text-3xl md:text-6xl font-bold text-center md:text-start'>
                   Ótimo software é<br/>
@@ -121,7 +121,7 @@ export default function Home() {
               />
             </div>
             {/* BOX SECUNDÁRIO */}
-            <div className='flex justify-center flex-col align-middle items-center mt-64'>
+            <div className='flex justify-center flex-col align-middle items-center mt-64 md:mt-40'>
               <h3 className='font-bold text-[#EF0178] text-xl'>Conheça nossos Clientes</h3>
               <p className='font-light text-3xl text-center mt-6'>Esses caras estão usando nosso serviço e estão<br/>mais do que felizes.</p>
               <ul className='list-none flex flex-col md:flex-row align-middle justify-center mt-6'>
@@ -134,7 +134,7 @@ export default function Home() {
             </div>
 
             {/* SOBRE NÓS */}
-            <div className='flex flex-col-reverse md:flex-row justify-center md:justify-evenly align-middle items-center mt-16'>
+            <div id='sobrenos' className='flex flex-col-reverse md:flex-row justify-center md:justify-evenly align-middle items-center mt-16'>
               <img src='/img.png' alt='Desenvolvedor no Foguete' width={633}/>
               <div>
                 <h1 className='text-center md:text-start text-3xl md:text-5xl font-bold'>Impulsione suas agências<br/>escolhendo <span className='text-[#5243C2]'>Ninja<br/>Desenvolvedores</span></h1>
@@ -148,7 +148,7 @@ export default function Home() {
             </div>
 
             {/* SERVIÇOS */}
-            <div className='flex justify-center flex-col align-middle items-center mt-16'>
+            <div id='servicos' className='flex justify-center flex-col align-middle items-center mt-16'>
               <h3 className='font-bold text-[#EF0178] text-xl'>Nossos Serviços</h3>
               <p className='font-bold text-3xl text-center mt-6'>Determine o serviço que você precisa</p>
               <ul className='list-none flex flex-col md:flex-row align-middle justify-evenly w-auto mt-6'>
@@ -183,11 +183,11 @@ export default function Home() {
                     Contrate a melhor equipe de desenvolvedores e design do <br/>mundo,
                     eles se encontram aqui na Zero 27 Code!
                   </h3>
-                  <img className='absolute w-16 md:w-20 right-3 md:left-[48rem] top-44 md:bottom-9 md:block' src='/group47.png'/>
+                  <img className='absolute w-16 md:w-20 right-3 md:left-[48rem] top-44 md:top-[-3rem] md:bottom-9 md:block' src='/group47.png'/>
                   <img className='absolute w-14 md:w-20 left-3 md:left-[39rem] md:top-24 md:block' src='/group48.png'/>
                 </div>
                 <div className='relative'>
-                  <img className='absolute left-48 bottom-14 hidden md:first-letter:block' src='/group46.png'/>
+                  <img className='absolute left-48 bottom-14 hidden md:block' src='/group46.png'/>
                   <button className='bg-[#EF0178] text-white p-5 md:p-5 mt-5 md:mt-0'>ENTRAR EM CONTATO</button>
                 </div>
                 
