@@ -88,18 +88,20 @@ export default function Home() {
                   <Disclosure.Panel className="md:hidden">
                     <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
                       {navigation.map((item) => (
-                        <Disclosure.Button
-                          key={item.name}
-                          as="a"
-                          href={item.href}
-                          className={classNames(
-                            item.current ? 'bg-[#EF0178] text-white' : 'text-black hover:bg-[#EF0178] hover:text-white',
-                            'block rounded-md px-3 py-2 text-base font-medium'
-                          )}
-                          aria-current={item.current ? 'page' : undefined}
-                        >
-                          {item.name}
-                        </Disclosure.Button>
+                        <Link key={item.name} to={item.to} spy={true} smooth={true}>
+                          <Disclosure.Button
+                            key={item.name}
+                            as="a"
+                            href={item.href}
+                            className={classNames(
+                              item.current ? 'bg-[#EF0178] text-white' : 'text-black hover:bg-[#EF0178] hover:text-white',
+                              'block rounded-md px-3 py-2 text-base font-medium'
+                            )}
+                            aria-current={item.current ? 'page' : undefined}
+                          >
+                            {item.name}
+                          </Disclosure.Button>
+                        </Link>
                       ))}
                     </div>
                   </Disclosure.Panel>
