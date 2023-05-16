@@ -2,11 +2,18 @@
 import { Fragment } from 'react'
 import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import {
+  Link,
+  Element,
+  Events,
+  animateScroll as scroll,
+  scroller,
+} from "react-scroll";
 
 const navigation = [
-  { name: 'Início', href: '#home', current: true },
-  { name: 'Sobre Nós', href: '#sobrenos', current: false },
-  { name: 'Serviços', href: '#servicos', current: false },
+  { name: 'Início', href: '#home', to: 'home', current: true },
+  { name: 'Sobre Nós', href: '#sobrenos', to: 'sobrenos', current: false },
+  { name: 'Serviços', href: '#servicos', to: 'servicos', current: false },
   // { name: 'Preços', href: '#', current: false },
   // { name: 'Depoimentos', href: '#', current: false },
 ]
@@ -41,7 +48,8 @@ export default function Home() {
                         <div className="hidden md:block">
                           <div className="ml-10 flex items-center space-x-4">
                             {navigation.map((item) => (
-                              <a
+                              <Link spy={true} smooth={true}
+                                to={item.to}
                                 key={item.name}
                                 href={item.href}
                                 className={classNames(
@@ -53,14 +61,14 @@ export default function Home() {
                                 aria-current={item.current ? 'page' : undefined}
                               >
                                 {item.name}
-                              </a>
+                              </Link>
                             ))}
                           </div>
                         </div>
                       </div>
                       <div className="hidden md:block">
                         <div className="ml-4 flex items-center md:ml-6">
-                          <button className='border-[1px] rounded-md border-[#EF0178] px-8 py-3 text-[#EF0178] font-semibold hover:bg-[#EF0178] hover:text-white'>Contato</button>
+                          <Link spy={true} smooth={true} to={'contato'} key={'contato'} ><button className='border-[1px] rounded-md border-[#EF0178] px-8 py-3 text-[#EF0178] font-semibold hover:bg-[#EF0178] hover:text-white'>Contato</button></Link>
                         </div>
                       </div>
                       <div className="-mr-2 flex md:hidden">
@@ -134,7 +142,7 @@ export default function Home() {
             </div>
 
             {/* SOBRE NÓS */}
-            <div id='sobrenos' className='flex flex-col-reverse md:flex-row justify-center md:justify-evenly align-middle items-center mt-16'>
+            <Element name='sobrenos' className='flex flex-col-reverse md:flex-row justify-center md:justify-evenly align-middle items-center mt-16'>
               <img src='/img.png' alt='Desenvolvedor no Foguete' width={633}/>
               <div>
                 <h1 className='text-center md:text-start text-3xl md:text-5xl font-bold'>Impulsione suas agências<br/>escolhendo <span className='text-[#5243C2]'>Ninja<br/>Desenvolvedores</span></h1>
@@ -145,10 +153,10 @@ export default function Home() {
                   <li className='flex align-middle items-center'><img src='/ok.png' alt='Verificado' width={15} className='mr-1'/>Fácil de personalizar plug-ins</li>
                 </ul>
               </div>
-            </div>
+            </Element>
 
             {/* SERVIÇOS */}
-            <div id='servicos' className='flex justify-center flex-col align-middle items-center mt-16'>
+            <Element name="servicos" id='servicos' className='flex justify-center flex-col align-middle items-center mt-16'>
               <h3 className='font-bold text-[#EF0178] text-xl'>Nossos Serviços</h3>
               <p className='font-bold text-3xl text-center mt-6'>Determine o serviço que você precisa</p>
               <ul className='list-none flex flex-col md:flex-row align-middle justify-evenly w-auto mt-6'>
@@ -173,7 +181,7 @@ export default function Home() {
                     <p className='mt-4'>colocamos vários prêmios por<br/>nosso desempenho</p>
                   </li>
               </ul>
-            </div>
+            </Element>
 
             {/* ENTRE EM CONTATO */}
             <div className='bg-[#5243C2] rounded-xl h-72 flex items-center align-middle justify-center mt-8 md:mt-16'>
@@ -188,7 +196,7 @@ export default function Home() {
                 </div>
                 <div className='relative'>
                   <img className='absolute left-48 bottom-14 hidden md:block' src='/group46.png'/>
-                  <button className='bg-[#EF0178] text-white p-5 md:p-5 mt-5 md:mt-0'>ENTRAR EM CONTATO</button>
+                  <Link to={'contato'} key={'contato'} spy={true} smooth={true}><button className='bg-[#EF0178] text-white p-5 md:p-5 mt-5 md:mt-0'>ENTRAR EM CONTATO</button></Link>
                 </div>
                 
               </div>
@@ -197,7 +205,7 @@ export default function Home() {
         </div>
       </div>
       {/* RODAPÈ */}
-      <footer className='bg-[#0C111F] mt-16 flex justify-center'>
+      <Element name="contato" className='bg-[#0C111F] mt-16 flex justify-center'>
         <div className='container relative'>
           <div className='absolute right-28 top-48 hidden md:block'>
             <img src='/group47.png'/>
@@ -235,7 +243,7 @@ export default function Home() {
           </div>
         </div>
         
-      </footer>
+      </Element>
     </>
     
   )
