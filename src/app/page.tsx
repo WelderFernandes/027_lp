@@ -9,6 +9,8 @@ import {
   animateScroll as scroll,
   scroller,
 } from "react-scroll";
+import { Fade, Reveal, Slide } from "react-awesome-reveal";
+import { keyframes } from "@emotion/react";
 
 const navigation = [
   { name: 'Início', href: '#home', to: 'home', current: true },
@@ -21,6 +23,18 @@ const navigation = [
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
+
+const customAnimation = keyframes`
+  from {
+    opacity: 0;
+    transform: translate3d(-200px, -100px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+`;
 
 
 export default function Home() {
@@ -145,87 +159,107 @@ export default function Home() {
 
             {/* SOBRE NÓS */}
             <Element name='sobrenos'>
-              <div className='flex justify-center flex-col align-middle items-center mt-64 md:mt-28'>
-                <h3 className='font-bold text-[#EF0178] text-xl'>Sobre Nós</h3>
-                <p className='font-bold text-3xl text-center mt-6 px-6'>Conheça mais sobre a nosssa empresa</p>
-              </div>
+              <Fade>
+                <div className='flex justify-center flex-col align-middle items-center mt-64 md:mt-28'>
+                  <h3 className='font-bold text-[#EF0178] text-xl'>Sobre Nós</h3>
+                  <p className='font-bold text-3xl text-center mt-6 px-6'>Conheça mais sobre a nosssa empresa</p>
+                </div>
+              </Fade>
               <div className='grid grid-cols-1 md:grid-cols-2 md:gap-5 md:mt-8'>
-                <div className='bg-[#5243C2] rounded-xl h-72 flex items-center align-middle justify-center mt-8 text-white m-3 md:m-0'>
-                  <div className='flex justify-center flex-col items-center p-5 md:p-0'>
-                    <h3 className='font-bold text-xl'>Missão</h3>
-                    <p className='text-center text-base font-normal mt-2 px-0 md:px-20'>Nossa missão é fornecer soluções de tecnologia personalizadas e eficazes que atendam às necessidades exclusivas de nossos clientes. Nós nos esforçamos para ser um parceiro confiável e colaborativo, trabalhando em estreita colaboração com nossos clientes para entender suas necessidades e fornecer soluções que os ajudem a alcançar seus objetivos de negócios.</p>
+                <Slide direction='left'>
+                  <div className='bg-[#5243C2] rounded-xl h-72 flex items-center align-middle justify-center mt-8 text-white m-3 md:m-0'>
+                    <div className='flex justify-center flex-col items-center p-5 md:p-0'>
+                      <h3 className='font-bold text-xl'>Missão</h3>
+                      <p className='text-center text-base font-normal mt-2 px-0 md:px-20'>Nossa missão é fornecer soluções de tecnologia personalizadas e eficazes que atendam às necessidades exclusivas de nossos clientes. Nós nos esforçamos para ser um parceiro confiável e colaborativo, trabalhando em estreita colaboração com nossos clientes para entender suas necessidades e fornecer soluções que os ajudem a alcançar seus objetivos de negócios.</p>
+                    </div>
                   </div>
-                </div>
-                <div className='bg-[#EF0178] rounded-xl h-72 flex items-center align-middle justify-center mt-8 text-white m-3 md:m-0'>
-                  <div className='flex justify-center flex-col items-center p-5 md:p-0'>
-                    <h3 className='font-bold text-xl'>Visão</h3>
-                    <p className='text-center text-base font-normal mt-2 px-0 md:px-20'>Ser a empresa líder em soluções de tecnologia inovadoras e personalizadas, que ajudam nossos clientes a alcançar seus objetivos de negócios.</p>
+                </Slide>
+                <Slide direction='right'>
+                  <div className='bg-[#EF0178] rounded-xl h-72 flex items-center align-middle justify-center mt-8 text-white m-3 md:m-0'>
+                    <div className='flex justify-center flex-col items-center p-5 md:p-0'>
+                      <h3 className='font-bold text-xl'>Visão</h3>
+                      <p className='text-center text-base font-normal mt-2 px-0 md:px-20'>Ser a empresa líder em soluções de tecnologia inovadoras e personalizadas, que ajudam nossos clientes a alcançar seus objetivos de negócios.</p>
+                    </div>
                   </div>
-                </div>
+                </Slide>
               </div>
               
               <div className='flex flex-col-reverse md:flex-row justify-center md:justify-evenly align-middle items-center'>
-                <img src='/img.png' alt='Desenvolvedor no Foguete' width={633}/>
-                <div>
-                  <h1 className='text-center md:text-start text-3xl md:text-5xl font-bold mt-10 md:mt-0'>Nossos<span className='text-[#5243C2]'> Valores</span></h1>
-                  {/* <p className='mt-5 text-center md:text-start text-md md:text-lg'>Venha criar suas landing pages personalizadas<br/>que convertem mais visitantes<br/>do que qualquer site.</p> */}
-                  <ul className='mt-5 flex md:flex-none justify-center md:justify-normal flex-col items-center md:items-start p-5 md:p-0'>
-                    <li className='flex align-middle items-center'><p className='mt-5 text-center md:text-start text-md md:text-lg'><img src='/ok.png' alt='Verificado' width={20} className='mr-1 inline'/><span className='font-semibold'>Inovação:</span> Nós valorizamos a inovação e estamos sempre procurando <br/>maneiras de melhorar e aprimorar nossas soluções de tecnologia.</p></li>
-                    <li className='flex align-middle items-center'><p className='mt-5 text-center md:text-start text-md md:text-lg'><img src='/ok.png' alt='Verificado' width={20} className='mr-1 inline'/><span className='font-semibold'>Qualidade:</span> Nós nos esforçamos para fornecer soluções de tecnologia de <br/>alta qualidade que atendam às necessidades de nossos clientes.</p></li>
-                    <li className='flex align-middle items-center'><p className='mt-5 text-center md:text-start text-md md:text-lg'><img src='/ok.png' alt='Verificado' width={20} className='mr-1 inline'/><span className='font-semibold'>Colaboração:</span> Nós acreditamos na importância da colaboração e trabalhamos<br/> em estreita colaboração com nossos clientes para entender suas necessidades<br/> e fornecer soluções personalizadas.</p></li>
-                    <li className='flex align-middle items-center'><p className='mt-5 text-center md:text-start text-md md:text-lg'><img src='/ok.png' alt='Verificado' width={20} className='mr-1 inline'/><span className='font-semibold'>Integridade:</span> Nós valorizamos a integridade e agimos com honestidade e <br/>transparência em todas as nossas interações com nossos clientes e parceiros.</p></li>
-                    <li className='flex align-middle items-center'><p className='mt-5 text-center md:text-start text-md md:text-lg'><img src='/ok.png' alt='Verificado' width={20} className='mr-1 inline'/><span className='font-semibold'>Responsabilidade:</span> Nós assumimos a responsabilidade por nossas ações e <br/>trabalhamos para garantir que nossas soluções de tecnologia tenham um <br/>impacto positivo em nossos clientes e na sociedade como um todo.</p></li>
-                  </ul>
-                </div>
+                <Slide>
+                  <img src='/img.png' alt='Desenvolvedor no Foguete' width={633}/>
+                </Slide>
+                <Fade>
+                  <div>
+                    <h1 className='text-center md:text-start text-3xl md:text-5xl font-bold mt-10 md:mt-0'>Nossos<span className='text-[#5243C2]'> Valores</span></h1>
+                    {/* <p className='mt-5 text-center md:text-start text-md md:text-lg'>Venha criar suas landing pages personalizadas<br/>que convertem mais visitantes<br/>do que qualquer site.</p> */}
+                    <ul className='mt-5 flex md:flex-none justify-center md:justify-normal flex-col items-center md:items-start p-5 md:p-0'>
+                      <li className='flex align-middle items-center'><p className='mt-5 text-center md:text-start text-md md:text-lg'><img src='/ok.png' alt='Verificado' width={20} className='mr-1 inline'/><span className='font-semibold'>Inovação:</span> Nós valorizamos a inovação e estamos sempre procurando <br/>maneiras de melhorar e aprimorar nossas soluções de tecnologia.</p></li>
+                      <li className='flex align-middle items-center'><p className='mt-5 text-center md:text-start text-md md:text-lg'><img src='/ok.png' alt='Verificado' width={20} className='mr-1 inline'/><span className='font-semibold'>Qualidade:</span> Nós nos esforçamos para fornecer soluções de tecnologia de <br/>alta qualidade que atendam às necessidades de nossos clientes.</p></li>
+                      <li className='flex align-middle items-center'><p className='mt-5 text-center md:text-start text-md md:text-lg'><img src='/ok.png' alt='Verificado' width={20} className='mr-1 inline'/><span className='font-semibold'>Colaboração:</span> Nós acreditamos na importância da colaboração e trabalhamos<br/> em estreita colaboração com nossos clientes para entender suas necessidades<br/> e fornecer soluções personalizadas.</p></li>
+                      <li className='flex align-middle items-center'><p className='mt-5 text-center md:text-start text-md md:text-lg'><img src='/ok.png' alt='Verificado' width={20} className='mr-1 inline'/><span className='font-semibold'>Integridade:</span> Nós valorizamos a integridade e agimos com honestidade e <br/>transparência em todas as nossas interações com nossos clientes e parceiros.</p></li>
+                      <li className='flex align-middle items-center'><p className='mt-5 text-center md:text-start text-md md:text-lg'><img src='/ok.png' alt='Verificado' width={20} className='mr-1 inline'/><span className='font-semibold'>Responsabilidade:</span> Nós assumimos a responsabilidade por nossas ações e <br/>trabalhamos para garantir que nossas soluções de tecnologia tenham um <br/>impacto positivo em nossos clientes e na sociedade como um todo.</p></li>
+                    </ul>
+                  </div>
+                </Fade>
               </div>
             </Element>
 
             {/* SERVIÇOS */}
             <Element name="servicos" id='servicos' className='flex justify-center flex-col align-middle items-center mt-16'>
-              <h3 className='font-bold text-[#EF0178] text-xl'>Nossos Serviços</h3>
-              <p className='font-bold text-3xl text-center mt-6'>Temos a solução exata para sua empresa</p>
-              <ul className='list-none grid grid-cols-1 md:grid-cols-3 gap-8 w-auto mt-6'>
-                  <li className='inline p-9 flex justify-start flex-col items-center text-center'>
-                    <img src='/frame.png' width={110}/>
-                    <h4 className='font-bold text-lg mt-5'>Desenvolvimento</h4>
-                    <p className='mt-4'>Desenvolvemos websites, sistemas e<br/> landing page gerenciáveis.</p>
-                  </li>
-                  <li className='inline p-9 flex justify-start flex-col items-center text-center'>
-                    <img src='/frame1.png' width={110}/>
-                    <h4 className='font-bold text-lg mt-5' >UI/UX Designer</h4>
-                    <p className='mt-4'>Fazemos com que o usuário tenha a<br/> melhor experiência de interação com<br/> sua empresa.</p>
-                  </li>
-                  <li className='inline p-9 flex justify-start flex-col items-center text-center'>
-                    <img src='/frame2.png' width={110}/>
-                    <h4 className='font-bold text-lg mt-5'>Responsividade</h4>
-                    <p className='mt-4'>Navegue em seu website, sistema ou<br/> landing page pelo celular, tablet, <br/>computador, entre outros dispositivos...</p>
-                  </li>
-                  {/* <li className='inline p-9 flex justify-start flex-col items-center text-center'>
-                    <img src='/frame3.png' width={110}/>
-                    <h4 className='font-bold text-lg mt-5'>Troféu</h4>
-                    <p className='mt-4'>Nossa maior vitória, é fazer parte do <br/>sucesso de sua empresa.</p>
-                  </li> */}
-              </ul>
+              <Fade>
+                <h3 className='font-bold text-[#EF0178] text-xl'>Nossos Serviços</h3>
+                <p className='font-bold text-3xl text-center mt-6'>Temos a solução exata para sua empresa</p>
+              </Fade>
+              <Reveal keyframes={customAnimation}>
+                <ul className='list-none grid grid-cols-1 md:grid-cols-3 gap-8 w-auto mt-6'> 
+                    <li className='inline p-9 flex justify-start flex-col items-center text-center'>
+                      <img src='/frame.png' width={110}/>
+                      <h4 className='font-bold text-lg mt-5'>Desenvolvimento</h4>
+                      <p className='mt-4'>Desenvolvemos websites, sistemas e<br/> landing page gerenciáveis.</p>
+                    </li>
+                    <li className='inline p-9 flex justify-start flex-col items-center text-center'>
+                      <img src='/frame1.png' width={110}/>
+                      <h4 className='font-bold text-lg mt-5' >UI/UX Designer</h4>
+                      <p className='mt-4'>Fazemos com que o usuário tenha a<br/> melhor experiência de interação com<br/> sua empresa.</p>
+                    </li>
+                    <li className='inline p-9 flex justify-start flex-col items-center text-center'>
+                      <img src='/frame2.png' width={110}/>
+                      <h4 className='font-bold text-lg mt-5'>Responsividade</h4>
+                      <p className='mt-4'>Navegue em seu website, sistema ou<br/> landing page pelo celular, tablet, <br/>computador, entre outros dispositivos...</p>
+                    </li>
+                    {/* <li className='inline p-9 flex justify-start flex-col items-center text-center'>
+                      <img src='/frame3.png' width={110}/>
+                      <h4 className='font-bold text-lg mt-5'>Troféu</h4>
+                      <p className='mt-4'>Nossa maior vitória, é fazer parte do <br/>sucesso de sua empresa.</p>
+                    </li> */}
+                </ul>
+                </Reveal>
             </Element>
 
             {/* ENTRE EM CONTATO */}
-            <div className='bg-[#5243C2] rounded-xl h-72 flex items-center align-middle justify-center mt-8 md:mt-16 m-3 md:m-0'>
-              <div className='flex items-center flex-col md:flex-row w-[100%] justify-around align-middle'>
-                <div className='relative'>
-                  <h3 className='text-white text-2xl md:text-2xl font-semibold text-center md:text-start'>
-                    Entre em contato conosco agora mesmo,<br/>
-                    e faça seu ORÇAMENTO!
-                  </h3>
-                  <img className='absolute w-16 md:w-20 right-3 md:left-[48rem] top-44 md:top-[-3rem] md:bottom-9 md:block' src='/group47.png'/>
-                  <img className='absolute w-14 md:w-20 left-3 md:left-[39rem] md:top-24 md:block' src='/group48.png'/>
+            <Slide cascade>
+              <div className='bg-[#5243C2] rounded-xl h-72 flex items-center align-middle justify-center mt-8 md:mt-16 m-3 md:m-0'>
+                <div className='flex items-center flex-col md:flex-row w-[100%] justify-around align-middle'>
+                  <div className='relative'>
+                    <Fade cascade>
+                      <h3 className='text-white text-2xl md:text-2xl font-semibold text-center md:text-start'>
+                        Entre em contato conosco agora mesmo,<br/>
+                        e faça seu ORÇAMENTO!
+                      </h3>
+                    </Fade>
+                    <img className='absolute w-16 md:w-20 right-3 md:left-[48rem] top-44 md:top-[-3rem] md:bottom-9 md:block' src='/group47.png'/>
+                    <img className='absolute w-14 md:w-20 left-3 md:left-[39rem] md:top-24 md:block' src='/group48.png'/>
+                  </div>
+                  <div className='relative'>
+                    <img className='absolute left-48 bottom-14 hidden md:block' src='/group46.png'/>
+                    <Fade cascade>
+                      <Link to={'contato'} key={'contato'} spy={true} smooth={true}><button className='bg-[#EF0178] text-white p-5 md:p-5 mt-5 md:mt-0'>ENTRAR EM CONTATO</button></Link>
+                    </Fade>
+                  </div>
+                  
                 </div>
-                <div className='relative'>
-                  <img className='absolute left-48 bottom-14 hidden md:block' src='/group46.png'/>
-                  <Link to={'contato'} key={'contato'} spy={true} smooth={true}><button className='bg-[#EF0178] text-white p-5 md:p-5 mt-5 md:mt-0'>ENTRAR EM CONTATO</button></Link>
-                </div>
-                
               </div>
-            </div>
+            </Slide>
           </main>
         </div>
       </div>
