@@ -1,7 +1,7 @@
 "use client";
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
 import { Disclosure } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, BellIcon, XMarkIcon, ArrowPathIcon } from '@heroicons/react/24/outline'
 import {
   Link,
   Element,
@@ -11,6 +11,8 @@ import {
 } from "react-scroll";
 import { Fade, Reveal, Slide } from "react-awesome-reveal";
 import { keyframes } from "@emotion/react";
+import toast from 'react-hot-toast';
+import { sendContactEmail } from '@/services/sendMail';
 
 const navigation = [
   { name: 'Início', href: '#home', to: 'home', current: true },
@@ -38,6 +40,34 @@ const customAnimation = keyframes`
 
 
 export default function Home() {
+
+  const [nome, setNome] = useState('');
+  const [telefone, setTelefone] = useState('');
+  const [senderMail, setSenderMail] = useState('');
+  const [mensagem, setMensagem] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  async function handleSubmit(event: any) {
+    event.preventDefault();
+    if(!nome || !telefone || !senderMail || !mensagem) {
+        toast.error('Preencha todos os campos!');
+      return;
+    }
+
+    try {
+      setLoading(true);
+      await sendContactEmail(nome,telefone,senderMail,mensagem);
+      setNome('');
+      setTelefone('');
+      setSenderMail(''); 
+      setMensagem('');
+      setLoading(false);
+      toast.success('Mensagem enviada com sucesso!');
+    } catch (error) {
+      toast.error('Ocorreu um erro ao enviar a mensagem. Tente Novamente!') 
+    }
+  }
+
   return (
     <>
       <div className='flex justify-center'>
@@ -159,14 +189,14 @@ export default function Home() {
 
             {/* SOBRE NÓS */}
             <Element name='sobrenos'>
-              <Fade>
+              <Fade triggerOnce={true}>
                 <div className='flex justify-center flex-col align-middle items-center mt-64 md:mt-28'>
                   <h3 className='font-bold text-[#EF0178] text-xl'>Sobre Nós</h3>
                   <p className='font-bold text-3xl text-center mt-6 px-6'>Conheça mais sobre a nosssa empresa</p>
                 </div>
               </Fade>
               <div className='grid grid-cols-1 md:grid-cols-2 md:gap-5 md:mt-8'>
-                <Slide direction='left'>
+                <Slide direction='left' triggerOnce={true}>
                   <div className='bg-[#5243C2] rounded-xl h-72 flex items-center align-middle justify-center mt-8 text-white m-3 md:m-0'>
                     <div className='flex justify-center flex-col items-center p-5 md:p-0'>
                       <h3 className='font-bold text-xl'>Missão</h3>
@@ -174,7 +204,7 @@ export default function Home() {
                     </div>
                   </div>
                 </Slide>
-                <Slide direction='right'>
+                <Slide direction='right' triggerOnce={true}>
                   <div className='bg-[#EF0178] rounded-xl h-72 flex items-center align-middle justify-center mt-8 text-white m-3 md:m-0'>
                     <div className='flex justify-center flex-col items-center p-5 md:p-0'>
                       <h3 className='font-bold text-xl'>Visão</h3>
@@ -185,7 +215,7 @@ export default function Home() {
               </div>
               
               <div className='flex flex-col-reverse md:flex-row justify-center md:justify-evenly align-middle items-center'>
-                <Slide>
+                <Slide triggerOnce={true}>
                   <img src='/img.png' alt='Desenvolvedor no Foguete' width={633}/>
                 </Slide>
                 <Fade>
@@ -206,11 +236,11 @@ export default function Home() {
 
             {/* SERVIÇOS */}
             <Element name="servicos" id='servicos' className='flex justify-center flex-col align-middle items-center mt-16'>
-              <Fade>
+              <Fade triggerOnce={true}>
                 <h3 className='font-bold text-[#EF0178] text-xl'>Nossos Serviços</h3>
                 <p className='font-bold text-3xl text-center mt-6'>Temos a solução exata para sua empresa</p>
               </Fade>
-              <Reveal keyframes={customAnimation}>
+              <Reveal keyframes={customAnimation} triggerOnce={true}>
                 <ul className='list-none grid grid-cols-1 md:grid-cols-3 gap-8 w-auto mt-6'> 
                     <li className='inline p-9 flex justify-start flex-col items-center text-center'>
                       <img src='/frame.png' width={110}/>
@@ -237,11 +267,11 @@ export default function Home() {
             </Element>
 
             {/* ENTRE EM CONTATO */}
-            <Slide cascade>
+            <Slide cascade triggerOnce={true}>
               <div className='bg-[#5243C2] rounded-xl h-72 flex items-center align-middle justify-center mt-8 md:mt-16 m-3 md:m-0'>
                 <div className='flex items-center flex-col md:flex-row w-[100%] justify-around align-middle'>
                   <div className='relative'>
-                    <Fade cascade>
+                    <Fade cascade triggerOnce={true}>
                       <h3 className='text-white text-2xl md:text-2xl font-semibold text-center md:text-start'>
                         Entre em contato conosco agora mesmo,<br/>
                         e faça seu ORÇAMENTO!
@@ -252,7 +282,7 @@ export default function Home() {
                   </div>
                   <div className='relative'>
                     <img className='absolute left-48 bottom-14 hidden md:block' src='/group46.png'/>
-                    <Fade cascade>
+                    <Fade cascade triggerOnce={true}>
                       <Link to={'contato'} key={'contato'} spy={true} smooth={true}><button className='bg-[#EF0178] text-white p-5 md:p-5 mt-5 md:mt-0'>ENTRAR EM CONTATO</button></Link>
                     </Fade>
                   </div>
@@ -272,17 +302,20 @@ export default function Home() {
           <div className='flex justify-center text-white flex-col items-center pb-20'>
             <h3 className='text-2xl md:text-3xl font-light pt-24'>Entre em contato conosco</h3>
             <p className='text-sm md:text-base text-center font-light pt-6 text-gray-400'>Ao entrar em contato, você aceita nossa política de privacidade.</p>
-            <div className='flex flex-col md:flex-row justify-center md:w-[100%] pb-2 pt-8'>
-              <div className='flex flex-col md:flex-col items-center md:items-start md:w-[30%] mx-3'>
-                  <input type='text' name='nome' placeholder='Nome' className='bg-slate-800 text-white p-4 w-full my-2'/>
-                  <input type='text' name='telefone' placeholder='Telefone' className='bg-slate-800 text-white p-4 w-full my-2'/>
-                  <input type='text' name='email' placeholder='E-mail' className='bg-slate-800 text-white p-4 w-full my-2'/>
+            <form onSubmit={handleSubmit} className='w-full flex flex-col justify-center items-center'>
+              <div className='flex flex-col md:flex-row justify-center md:w-[100%] pb-2 pt-8'>
+                <div className='flex flex-col md:flex-col items-center md:items-start md:w-[30%] mx-3'>
+                    <input type='text' name='nome' placeholder='Nome' className='bg-slate-800 text-white p-4 w-full my-2' onChange={({target}) => setNome(target.value)} value={nome}/>
+                    <input type='text' name='telefone' placeholder='Telefone' className='bg-slate-800 text-white p-4 w-full my-2' onChange={({target}) => setTelefone(target.value)} value={telefone}/>
+                    <input type='text' name='senderMail' placeholder='E-mail' className='bg-slate-800 text-white p-4 w-full my-2' onChange={({target}) => setSenderMail(target.value)} value={senderMail}/>
+                </div>
+                <div className='flex justify-center md:w-[30%] mx-3 '>
+                  <textarea name='mensagem' placeholder='Mensagem' className='bg-slate-800 w-[100%] p-1 my-2' onChange={({target}) => setMensagem(target.value)} value={mensagem}></textarea>
+                </div>
               </div>
-              <div className='flex justify-center md:w-[30%] mx-3 '>
-                <textarea name='mensagem' placeholder='Mensagem' className='bg-slate-800 w-[100%] p-1 my-2'></textarea>
-              </div>
-            </div>
-            <button className='bg-[#5243C2] p-4 my-2 text-white'>Enviar Mensagem</button>
+              <button type='submit' className='bg-[#5243C2] p-4 my-2 text-white text-center'>{loading == true ? <ArrowPathIcon width={20} className='animate-spin' /> : 'Enviar Mensagem' }</button>
+            </form>
+            
             
           </div>
 
