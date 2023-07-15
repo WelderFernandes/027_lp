@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Zero 27 Code',
-  description: 'Os melhores sites sai daqui!',
+  description: 'Nós da Zero 27 Code, somos apaixonados por criar soluções inovadoras e de ponta que ajudam as empresas a prosperar no cenário digital atual.',
 }
 
 export default function RootLayout({

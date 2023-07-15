@@ -16,7 +16,7 @@ const transporter = nodemailer.createTransport({
     port: 465,
     auth: {
         user: 'contato@zero27code.com.br',
-        pass: '@027Code2023'
+        pass: '@Zero27Code@'
     }
     // tls: {
     //     // do not fail on invalid certs
