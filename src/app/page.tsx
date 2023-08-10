@@ -99,7 +99,7 @@ export default function Home() {
                                 className={classNames(
                                   item.current
                                     ? 'text-[#EF0178]'
-                                    : 'text-black hover:text-[#EF0178]',
+                                    : 'text-white hover:text-[#EF0178]',
                                   'rounded-md px-3 py-2 font-medium'
                                 )}
                                 aria-current={item.current ? 'page' : undefined}
@@ -138,7 +138,7 @@ export default function Home() {
                             as="a"
                             href={item.href}
                             className={classNames(
-                              item.current ? 'bg-[#EF0178] text-white' : 'text-black hover:bg-[#EF0178] hover:text-white',
+                              item.current ? 'bg-[#EF0178] text-white' : 'text-white hover:bg-[#EF0178] hover:text-white',
                               'block rounded-md px-3 py-2 text-base font-medium'
                             )}
                             aria-current={item.current ? 'page' : undefined}
@@ -156,22 +156,22 @@ export default function Home() {
 
           <main>
             {/* BOX PRINCIPAL */}
-            <div id='home' className='flex align-middle items-center flex-col-reverse md:flex-row justify-center md:justify-around mt-12 md:mt-24'>
+            <div id='home' className='flex align-middle items-center flex-col-reverse md:flex-row justify-center md:justify-around mt-12 md:mt-15'>
               <div className='flex align-middle justify-center items-center md:items-start h-32 flex-col'>
-                <h1 className='mt-60 md:mt-0 text-3xl md:text-6xl font-bold text-center md:text-start'>
+                <h1 className='mt-60 md:mt-0 text-3xl md:text-5xl font-bold text-center md:text-start text-white'>
                   Um ótimo <span className='text-[#5243C2]'>site</span> ou <span className='text-[#5243C2]'>sistema</span><br/>
                   é construído com <span className='text-[#EF0178]'> incríveis<br/>
                   desenvolvedores</span>
                 </h1>
 
-                <p className='mt-10 text-md md:text-xl text-center md:text-start'>Ajudamos a construir e gerenciamos uma equipe de desenvolvedores <br/>de classe mundial para dar vida à sua visão</p>
+                <p className='mt-10 text-md md:text-lg text-center md:text-start text-white'>Ajudamos a construir e gerenciamos uma equipe de desenvolvedores <br/>de classe mundial para dar vida à sua visão</p>
 
                 <Link to={'contato'} key={'contato'} spy={true} smooth={true}><button className='bg-[#5243C2] text-[#fff] font-semibold w-56 p-3 rounded-md mt-10'>Vamos Conversar!</button></Link>
               </div>
               <img
                 src='/img_principal.png'
                 alt='Desenvolvedor Programando'
-                width={696}
+                width={572}
               />
             </div>
             {/* BOX SECUNDÁRIO */}
@@ -190,9 +190,9 @@ export default function Home() {
             {/* SOBRE NÓS */}
             <Element name='sobrenos'>
               <Fade triggerOnce={true}>
-                <div className='flex justify-center flex-col align-middle items-center mt-64 md:mt-28'>
+                <div className='flex justify-center flex-col align-middle items-center mt-64 md:mt-14'>
                   <h3 className='font-bold text-[#EF0178] text-xl'>Sobre Nós</h3>
-                  <p className='font-bold text-3xl text-center mt-6 px-6'>Conheça mais sobre a nosssa empresa</p>
+                  <p className='font-bold text-3xl text-center mt-6 px-6 text-white'>Conheça mais sobre a nosssa empresa</p>
                 </div>
               </Fade>
               <div className='grid grid-cols-1 md:grid-cols-2 md:gap-5 md:mt-8'>
@@ -214,20 +214,20 @@ export default function Home() {
                 </Slide>
               </div>
               
-              <div className='flex flex-col-reverse md:flex-row justify-center md:justify-evenly align-middle items-center'>
+              <div className='flex flex-col-reverse md:flex-row justify-center md:justify-evenly align-middle items-center mt-10'>
                 <Slide triggerOnce={true}>
-                  <img src='/img.png' alt='Desenvolvedor no Foguete' width={633}/>
+                  <img src='/img.png' alt='Desenvolvedor no Foguete' width={510}/>
                 </Slide>
                 <Fade>
                   <div>
-                    <h1 className='text-center md:text-start text-3xl md:text-5xl font-bold mt-10 md:mt-0'>Nossos<span className='text-[#5243C2]'> Valores</span></h1>
+                    <h1 className='text-center md:text-start text-3xl md:text-5xl font-bold mt-10 md:mt-0 text-white'>Nossos<span className='text-[#5243C2]'> Valores</span></h1>
                     {/* <p className='mt-5 text-center md:text-start text-md md:text-lg'>Venha criar suas landing pages personalizadas<br/>que convertem mais visitantes<br/>do que qualquer site.</p> */}
-                    <ul className='mt-5 flex md:flex-none justify-center md:justify-normal flex-col items-center md:items-start p-5 md:p-0'>
-                      <li className='flex align-middle items-center'><p className='mt-5 text-center md:text-start text-md md:text-lg'><img src='/ok.png' alt='Verificado' width={20} className='mr-1 inline'/><span className='font-semibold'>Inovação:</span> Nós valorizamos a inovação e estamos sempre procurando <br/>maneiras de melhorar e aprimorar nossas soluções de tecnologia.</p></li>
-                      <li className='flex align-middle items-center'><p className='mt-5 text-center md:text-start text-md md:text-lg'><img src='/ok.png' alt='Verificado' width={20} className='mr-1 inline'/><span className='font-semibold'>Qualidade:</span> Nós nos esforçamos para fornecer soluções de tecnologia de <br/>alta qualidade que atendam às necessidades de nossos clientes.</p></li>
-                      <li className='flex align-middle items-center'><p className='mt-5 text-center md:text-start text-md md:text-lg'><img src='/ok.png' alt='Verificado' width={20} className='mr-1 inline'/><span className='font-semibold'>Colaboração:</span> Nós acreditamos na importância da colaboração e trabalhamos<br/> em estreita colaboração com nossos clientes para entender suas necessidades<br/> e fornecer soluções personalizadas.</p></li>
-                      <li className='flex align-middle items-center'><p className='mt-5 text-center md:text-start text-md md:text-lg'><img src='/ok.png' alt='Verificado' width={20} className='mr-1 inline'/><span className='font-semibold'>Integridade:</span> Nós valorizamos a integridade e agimos com honestidade e <br/>transparência em todas as nossas interações com nossos clientes e parceiros.</p></li>
-                      <li className='flex align-middle items-center'><p className='mt-5 text-center md:text-start text-md md:text-lg'><img src='/ok.png' alt='Verificado' width={20} className='mr-1 inline'/><span className='font-semibold'>Responsabilidade:</span> Nós assumimos a responsabilidade por nossas ações e <br/>trabalhamos para garantir que nossas soluções de tecnologia tenham um <br/>impacto positivo em nossos clientes e na sociedade como um todo.</p></li>
+                    <ul className='mt-5 flex md:flex-none justify-center md:justify-normal flex-col items-center md:items-start p-5 md:p-0 text-white'>
+                      <li className='flex align-middle items-center'><p className='mt-5 text-center md:text-start text-md md:text-base'><img src='/ok.png' alt='Verificado' width={20} className='mr-1 inline'/><span className='font-semibold'>Inovação:</span> Nós valorizamos a inovação e estamos sempre procurando <br/>maneiras de melhorar e aprimorar nossas soluções de tecnologia.</p></li>
+                      <li className='flex align-middle items-center'><p className='mt-5 text-center md:text-start text-md md:text-base'><img src='/ok.png' alt='Verificado' width={20} className='mr-1 inline'/><span className='font-semibold'>Qualidade:</span> Nós nos esforçamos para fornecer soluções de tecnologia de <br/>alta qualidade que atendam às necessidades de nossos clientes.</p></li>
+                      <li className='flex align-middle items-center'><p className='mt-5 text-center md:text-start text-md md:text-base'><img src='/ok.png' alt='Verificado' width={20} className='mr-1 inline'/><span className='font-semibold'>Colaboração:</span> Nós acreditamos na importância da colaboração e trabalhamos<br/> em estreita colaboração com nossos clientes para entender suas necessidades<br/> e fornecer soluções personalizadas.</p></li>
+                      <li className='flex align-middle items-center'><p className='mt-5 text-center md:text-start text-md md:text-base'><img src='/ok.png' alt='Verificado' width={20} className='mr-1 inline'/><span className='font-semibold'>Integridade:</span> Nós valorizamos a integridade e agimos com honestidade e <br/>transparência em todas as nossas interações com nossos clientes e parceiros.</p></li>
+                      <li className='flex align-middle items-center'><p className='mt-5 text-center md:text-start text-md md:text-base'><img src='/ok.png' alt='Verificado' width={20} className='mr-1 inline'/><span className='font-semibold'>Responsabilidade:</span> Nós assumimos a responsabilidade por nossas ações e <br/>trabalhamos para garantir que nossas soluções de tecnologia tenham um <br/>impacto positivo em nossos clientes e na sociedade como um todo.</p></li>
                     </ul>
                   </div>
                 </Fade>
@@ -238,10 +238,10 @@ export default function Home() {
             <Element name="servicos" id='servicos' className='flex justify-center flex-col align-middle items-center mt-16'>
               <Fade triggerOnce={true}>
                 <h3 className='font-bold text-[#EF0178] text-xl'>Nossos Serviços</h3>
-                <p className='font-bold text-3xl text-center mt-6'>Temos a solução exata para sua empresa</p>
+                <p className='font-bold text-3xl text-center mt-6 text-white'>Temos a solução exata para sua empresa</p>
               </Fade>
               <Reveal keyframes={customAnimation} triggerOnce={true}>
-                <ul className='list-none grid grid-cols-1 md:grid-cols-3 gap-8 w-auto mt-6'> 
+                <ul className='list-none grid grid-cols-1 md:grid-cols-3 gap-8 w-auto mt-6 text-white'> 
                     <li className='inline p-9 flex justify-start flex-col items-center text-center'>
                       <img src='/frame.png' width={110}/>
                       <h4 className='font-bold text-lg mt-5'>Desenvolvimento</h4>
