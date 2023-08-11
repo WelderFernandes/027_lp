@@ -221,7 +221,6 @@ export default function Home() {
                 <Fade>
                   <div>
                     <h1 className='text-center md:text-start text-3xl md:text-5xl font-bold mt-10 md:mt-0 text-white'>Nossos<span className='text-[#5243C2]'> Valores</span></h1>
-                    {/* <p className='mt-5 text-center md:text-start text-md md:text-lg'>Venha criar suas landing pages personalizadas<br/>que convertem mais visitantes<br/>do que qualquer site.</p> */}
                     <ul className='mt-5 flex md:flex-none justify-center md:justify-normal flex-col items-center md:items-start p-5 md:p-0 text-white'>
                       <li className='flex align-middle items-center'><p className='mt-5 text-center md:text-start text-md md:text-base'><img src='/ok.png' alt='Verificado' width={20} className='mr-1 inline'/><span className='font-semibold'>Inovação:</span> Nós valorizamos a inovação e estamos sempre procurando <br/>maneiras de melhorar e aprimorar nossas soluções de tecnologia.</p></li>
                       <li className='flex align-middle items-center'><p className='mt-5 text-center md:text-start text-md md:text-base'><img src='/ok.png' alt='Verificado' width={20} className='mr-1 inline'/><span className='font-semibold'>Qualidade:</span> Nós nos esforçamos para fornecer soluções de tecnologia de <br/>alta qualidade que atendam às necessidades de nossos clientes.</p></li>
@@ -257,11 +256,6 @@ export default function Home() {
                       <h4 className='font-bold text-lg mt-5'>Responsividade</h4>
                       <p className='mt-4'>Navegue em seu website, sistema ou<br/> landing page pelo celular, tablet, <br/>computador, entre outros dispositivos...</p>
                     </li>
-                    {/* <li className='inline p-9 flex justify-start flex-col items-center text-center'>
-                      <img src='/frame3.png' width={110}/>
-                      <h4 className='font-bold text-lg mt-5'>Troféu</h4>
-                      <p className='mt-4'>Nossa maior vitória, é fazer parte do <br/>sucesso de sua empresa.</p>
-                    </li> */}
                 </ul>
                 </Reveal>
             </Element>
@@ -290,11 +284,19 @@ export default function Home() {
                 </div>
               </div>
             </Slide>
+            {/* REDE SOCIAL - INSTAGRAM */}
+            <div className='flex justify-center flex-col align-middle items-center mt-16'>
+              <h3 className='font-bold text-[#EF0178] text-xl'>Instagram</h3>
+              <p className='font-bold text-3xl text-center mt-6 text-white mb-6'>Conheça nosso feed!</p>
+              {/* SnapWidget */}
+              <script src="https://snapwidget.com/js/snapwidget.js"></script>
+              <iframe src="https://snapwidget.com/embed/1040687" className="snapwidget-widget" style={{border:"none", overflow:"hidden",  width:"100%"}}></iframe>
+            </div>
           </main>
         </div>
       </div>
       {/* RODAPÈ */}
-      <Element name="contato" className='bg-[#0C111F] mt-16 flex justify-center'>
+      <Element name="contato" className='bg-[#0C111F] mt-7 flex justify-center'>
         <div className='container relative'>
           <div className='absolute right-28 top-48 hidden md:block'>
             <img src='/group47.png'/>
@@ -327,13 +329,6 @@ export default function Home() {
             <img src='/logo_027.png' width={180}/>
             <p className='text-white text-center mt-4'>© Zero 27 Code 2023<br/>
             Todos os direitos reservados.</p>
-            {/* <ul className='list-none flex align-middle justify-center text-white'>
-              <li className='inline p-3'>Inicio</li>
-              <li className='inline p-3'>Sobre Nós</li>
-              <li className='inline p-3'>Serviços</li>
-              <li className='inline p-3'>Preços</li>
-              <li className='inline p-3'>Depoimentos</li>
-            </ul> */}
           </div>
         </div>
         
