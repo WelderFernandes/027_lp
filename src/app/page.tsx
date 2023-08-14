@@ -1,5 +1,5 @@
 "use client";
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon, ArrowPathIcon } from '@heroicons/react/24/outline'
 import {
@@ -67,6 +67,19 @@ export default function Home() {
       toast.error('Ocorreu um erro ao enviar a mensagem. Tente Novamente!') 
     }
   }
+
+  // este useEffect será chamado logo ao renderizar o component
+  useEffect(() => {
+    const head = document.querySelector("head");
+    const scriptEl = document.createElement("script");
+      
+    scriptEl.setAttribute("async", "");
+    scriptEl.setAttribute("src", "https://snapwidget.com/js/snapwidget.js");
+      
+    head.appendChild(scriptEl);
+      
+      return () => { head.removeChild(scriptEl); }
+  }, []);
 
   return (
     <>
@@ -289,7 +302,7 @@ export default function Home() {
               <h3 className='font-bold text-[#EF0178] text-xl'>Instagram</h3>
               <p className='font-bold text-3xl text-center mt-6 text-white mb-6'>Conheça nosso feed!</p>
               {/* SnapWidget */}
-              <script src="https://snapwidget.com/js/snapwidget.js"></script>
+              {/* <script src="https://snapwidget.com/js/snapwidget.js"></script> */}
               <iframe src="https://snapwidget.com/embed/1040687" className="snapwidget-widget" style={{border:"none", overflow:"hidden",  width:"100%"}}></iframe>
             </div>
           </main>
