@@ -75,10 +75,13 @@ export default function Home() {
       
     scriptEl.setAttribute("async", "");
     scriptEl.setAttribute("src", "https://snapwidget.com/js/snapwidget.js");
-      
-    head.appendChild(scriptEl);
-      
+    if (head) {
+      head.appendChild(scriptEl);
       return () => { head.removeChild(scriptEl); }
+    } else {
+      return () => { }
+    }
+      
   }, []);
 
   return (
