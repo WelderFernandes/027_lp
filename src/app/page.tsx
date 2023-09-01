@@ -18,7 +18,7 @@ const navigation = [
   { name: 'Início', href: '#home', to: 'home', current: true },
   { name: 'Sobre Nós', href: '#sobrenos', to: 'sobrenos', current: false },
   { name: 'Serviços', href: '#servicos', to: 'servicos', current: false },
-  // { name: 'Preços', href: '#', current: false },
+  { name: 'Projetos', href: '#projetos', to: 'projetos', current: false },
   // { name: 'Depoimentos', href: '#', current: false },
 ]
 
@@ -190,18 +190,6 @@ export default function Home() {
                 width={572}
               />
             </div>
-            {/* BOX SECUNDÁRIO */}
-            {/* <div className='flex justify-center flex-col align-middle items-center mt-64 md:mt-40'>
-              <h3 className='font-bold text-[#EF0178] text-xl'>Conheça nossos Clientes</h3>
-              <p className='font-light text-3xl text-center mt-6'>Esses caras estão usando nosso serviço e estão<br/>mais do que felizes.</p>
-              <ul className='list-none flex flex-col md:flex-row align-middle justify-center mt-6'>
-                  <li className='inline p-9 flex justify-center md:justify-normal align-middle items-center'><img src='/image 11.png' width={100}/></li>
-                  <li className='inline p-9 flex justify-center md:justify-normal align-middle items-center'><img src='/image 12.png' width={130}/></li>
-                  <li className='inline p-9 flex justify-center md:justify-normal align-middle items-center'><img src='/image 13.png' width={150}/></li>
-                  <li className='inline p-9 flex justify-center md:justify-normal align-middle items-center'><img src='/image 14.png' width={150}/></li>
-                  <li className='inline p-9 flex justify-center md:justify-normal align-middle items-center'><img src='/image 15.png' width={150}/></li>
-              </ul>
-            </div> */}
 
             {/* SOBRE NÓS */}
             <Element name='sobrenos'>
@@ -275,6 +263,20 @@ export default function Home() {
                 </ul>
                 </Reveal>
             </Element>
+
+            {/* BOX SECUNDÁRIO */}
+            <Element name='projetos'>
+              <div className='flex justify-center flex-col align-middle items-center mt-7 md:mt-14 rounded-xl py-6'>
+                <h3 className='font-bold text-[#EF0178] text-xl'>Conheça nossos Projetos</h3>
+                <p className='font-light text-3xl text-center mt-6 text-white'>Venha fazer seu orçamento conosco!<br/>Estamos a sua disposição.</p>
+                <ul className='list-none flex flex-col md:flex-row align-middle justify-center mt-6'>
+                    {/* <li className='inline p-9 flex justify-center md:justify-normal align-middle items-center'><a href='https://hotdogdamaravilhosa.vercel.app/' target='_blank'><img src='/hotdog.png' width={80}/></a></li> */}
+                    <li className='inline p-9 flex justify-center md:justify-normal align-middle items-center'><a href='https://auto-shop-027.vercel.app/' target='_blank'><img src='/autoshop027.png' width={110}/></a></li>
+                    <li className='inline p-9 flex justify-center md:justify-normal align-middle items-center'><a href='https://barber-027.vercel.app/' target='_blank'><img src='/barber.png' width={110}/></a></li>
+                </ul>
+              </div>
+            </Element>
+
 
             {/* ENTRE EM CONTATO */}
             <Slide cascade triggerOnce={true}>
