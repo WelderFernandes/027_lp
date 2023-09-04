@@ -271,7 +271,7 @@ export default function Home() {
                 <p className='font-light text-3xl text-center mt-6 text-white'>Venha fazer seu orçamento conosco!<br/>Estamos a sua disposição.</p>
                 <ul className='list-none flex flex-col md:flex-row align-middle justify-center mt-6'>
                     {/* <li className='inline p-9 flex justify-center md:justify-normal align-middle items-center'><a href='https://hotdogdamaravilhosa.vercel.app/' target='_blank'><img src='/hotdog.png' width={80}/></a></li> */}
-                    <li className='inline p-9 flex justify-center md:justify-normal align-middle items-center'><a href='https://auto-shop-027.vercel.app/' target='_blank'><img src='/autoshop027.png' width={110}/></a></li>
+                    {/* <li className='inline p-9 flex justify-center md:justify-normal align-middle items-center'><a href='https://auto-shop-027.vercel.app/' target='_blank'><img src='/autoshop027.png' width={110}/></a></li> */}
                     <li className='inline p-9 flex justify-center md:justify-normal align-middle items-center'><a href='https://barber-027.vercel.app/' target='_blank'><img src='/barber.png' width={110}/></a></li>
                 </ul>
               </div>
